@@ -1,0 +1,15 @@
+{
+    "version": "1.10.2",
+    "addonlistControls": {
+        "plugin": {
+            "sort": "isEnabled"
+        }
+    },
+    "drawerStates": {
+        "settings": {
+            "customcss": false,
+            "editor": false,
+            "developer": true
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "SpellCheck": false,
+    "SpotifyControls": true,
+    "WriteUpperCase": true,
+    "ZeresPluginLibrary": false,
+    "GameActivityToggle": false,
+    "NotificationSounds": true,
+    "PluginRepo": false,
+    "RemoveChatButtons": true,
+    "BDFDB": true,
+    "AutoScroll": true,
+    "ChatAliases": false,
+    "CopyImageLink": false,
+    "TextReplacer": false
+}
