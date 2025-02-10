@@ -1,15 +1,15 @@
 [Added Associations]
 application/vnd.ms-powerpoint.presentation.macroEnabled.12=libreoffice-impress.desktop;
-application/x-extension-htm=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
-application/x-extension-html=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
-application/x-extension-shtml=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
-application/x-extension-xht=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
-application/x-extension-xhtml=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
-application/xhtml+xml=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
-text/html=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
-x-scheme-handler/chrome=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
-x-scheme-handler/http=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
-x-scheme-handler/https=floorp.desktop;userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+application/x-extension-htm=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+application/x-extension-html=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+application/x-extension-shtml=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+application/x-extension-xht=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+application/x-extension-xhtml=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+application/xhtml+xml=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+text/html=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+x-scheme-handler/chrome=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+x-scheme-handler/http=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
+x-scheme-handler/https=userapp-Zen Browser-LZ6KV2.desktop;userapp-Zen Browser-0N0EV2.desktop;userapp-Zen Browser-SFVDV2.desktop;
 
 [Default Applications]
 application/pdf=org.pwmt.zathura.desktop
@@ -22,7 +22,7 @@ application/x-extension-xhtml=userapp-Zen Browser-SFVDV2.desktop
 application/xhtml+xml=userapp-Zen Browser-SFVDV2.desktop
 inode/directory=org.kde.dolphin.desktop
 text/=nvim.desktop
-text/*=vim.desktop
+text/*=nvim.desktop
 text/html=userapp-Zen Browser-SFVDV2.desktop
 text/plain=nvim.desktop
 x-scheme-handler/chrome=userapp-Zen Browser-SFVDV2.desktop
