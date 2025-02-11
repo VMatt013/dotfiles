@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Installs dotfiles
+
+if arch
+
+pacman -S --noconfirm \
+  neovim \
+  vifm \
+  stow \
+  alacritty \
+  picom \
+  rofi \
+  zip \
+  unzip \
+  curl \
+
+  light \
+  blueman?
+  kdeconnect?
+  kde-spectacle?
+  networkmanager-gnome?
+  mpv
+
+  zen?
+  code?
+  awesome!!
+
+  grub
+
+
