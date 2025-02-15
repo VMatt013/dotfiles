@@ -29,3 +29,11 @@ pacman -S --noconfirm \
   grub
 
 
+mkdir /usr/share/fonts
+cp fonts/* /usr/share/fonts
+
+
+/sbin/reboot
+
+
+
