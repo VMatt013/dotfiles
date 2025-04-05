@@ -141,6 +141,7 @@ command! mkf :touch %a
 command open :!xdg-open %f
 
 command! gclone git clone https://github.com/%a
+command! gcloneme git clone https://github.com/VMatt013/%a
 command! gadd git add %f
 command! greset git reset %f
 command! gcommit git commit -m %a
