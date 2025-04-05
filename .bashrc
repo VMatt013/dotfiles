@@ -36,18 +36,8 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-
-
 case "$TERM" in
-    xterm)
-        color_prompt=yes
-        ;;
-    screen)
-        color_prompt=yes
-        ;;
-    *256*) 
-        color_prompt=yes
-        ;;
+xterm-color | *-256color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -121,30 +111,9 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-case "$TERM" in
-    xterm)
-        color_prompt=yes
-        ;;
-    screen)
-        color_prompt=yes
-        ;;
-    *256*) 
-        color_prompt=yes
-        ;;
-    alacritty)
-	eval "$(starship init bash)"
-	;;
-esac
-
-eval "$(zoxide init bash)"
+eval "$(starship init bash)"
 shopt -s autocd
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-export PATH=$PATH:/home/matt/.spicetify
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)

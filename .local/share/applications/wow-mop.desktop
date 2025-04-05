@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=wine '/mnt/win-d/Games/World of Warcraft 5.4.8/Wow-SF.exe'
 Type=Application
-Categories=Development
+Categories=Game
 Icon=/home/matt/Documents/Rofi/alma.png
 Name=World of Warcraft - Mists of Pandaria

@@ -25,6 +25,7 @@ alias mon_off="xrandr --output eDP-1 --output HDMI-1-2 --off"
 
 alias f="vifm ."
 alias sf="sudo vifm ."
+
 alias IntelliJ="/home/matt/.local/share/JetBrains/Toolbox/scripts/idea"
 
 alias funi="vifm '/home/matt/Documents/University/Semester IV./'"
@@ -32,9 +33,4 @@ alias uni="cd '/home/matt/Documents/University/Semester IV./'"
 
 alias ssh-server="ssh matt@192.168.0.110"
 
-alias fastanime="pipx run fastanime anilist"
-
 alias update-zen="bash <(curl https://updates.zen-browser.app/appimage.sh)"
-
-alias pass="1password"
-alias onepass="1password"

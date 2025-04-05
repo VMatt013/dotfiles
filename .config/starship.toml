@@ -42,7 +42,7 @@ disabled = false
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
-style = "bg:#811d58 fg:#ff0f2a"
+style = "bg:#811d58 fg:#a4c639"
 disabled = false # Disabled by default
 
 [os.symbols]
