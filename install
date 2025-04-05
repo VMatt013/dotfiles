@@ -5,6 +5,7 @@
 if arch
 
 pacman -S --noconfirm \
+  sddm \
   neovim \
   vifm \
   stow \
@@ -21,7 +22,7 @@ pacman -S --noconfirm \
   kde-spectacle?
   networkmanager-gnome?
   mpv
-
+  openssh
   zen?
   code?
   awesome!!
@@ -32,6 +33,8 @@ pacman -S --noconfirm \
 mkdir /usr/share/fonts
 cp fonts/* /usr/share/fonts
 
+systemctl enable sddm
+systemctl enable sshd
 
 /sbin/reboot
 
