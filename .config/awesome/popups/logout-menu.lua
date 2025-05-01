@@ -52,7 +52,6 @@ local menu_items = {
 	{ name = "Log out", icon_name = "user.svg", command = onlogout },
 	{ name = "Lock", icon_name = "lock.svg", command = onlock },
 	{ name = "Reboot", icon_name = "reload.svg", command = onreboot },
-	{ name = "Reboot to Windows", icon_name = "windows.svg", command = onrebootwindows },
 	{ name = "Suspend", icon_name = "moon.svg", command = onsuspend },
 	{ name = "Power off", icon_name = "power.svg", command = onpoweroff },
 }

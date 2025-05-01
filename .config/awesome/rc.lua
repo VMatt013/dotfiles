@@ -163,11 +163,11 @@ globalkeys = gears.table.join(
 	end, { description = "open a logout menu", group = "launcher" }),
 
 	awful.key({ modkey, "Shift" }, "s", function()
-		awful.spawn("spectacle -r")
-	end, { description = "open spectacle region", group = "launcher" }),
+		awful.spawn("flameshot gui")
+	end, { description = "open flameshot gui", group = "launcher" }),
 
 	awful.key({ modkey }, "b", function()
-		awful.spawn("zenbrowser")
+		awful.spawn("zen-browser")
 		local screen = awful.screen.focused()
 		screen.tags[3]:view_only()
 	end, { description = "open browser", group = "launcher" }),
@@ -412,6 +412,7 @@ awful.rules.rules = {
 	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = beautiful.titlebars_enable } },
 
 	{ rule = { class = "Zen Browser" }, properties = { screen = 1, tag = "3" } },
+	{ rule = { name = "Onboard" }, properties = { focusable = false } },
 
 	{
 		rule = { instance = "Toolkit", role = "PictureInPicture" },
@@ -513,5 +514,10 @@ client.connect_signal("mouse::enter", function(c)
 end)
 
 -- }}}
+
+require("scripts.tablet_mode_watcher")
+require("scripts.rotate-screen")
+
+--awful.spawn.with_shell("~/.config/awesome/scripts/rotate-screen &")
 
 awful.spawn.with_shell("~/.config/awesome/startup.sh")

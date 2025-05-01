@@ -1,0 +1,33 @@
+
+#!/bin/bash
+
+# Input device name for the touchscreen
+TOUCHSCREEN="Wacom HID 5308 Finger"
+SCREEN="eDP-1"
+
+# Run monitor-sensor and parse its output
+monitor-sensor | while read -r line; do
+    # Extract the orientation from the output
+    case $line in
+        *"normal"*)
+            xrandr --output $SCREEN --rotate normal
+            xinput map-to-output "$(xinput list --name-only | grep "$TOUCHSCREEN")" $SCREEN
+            ;;
+        *"left"*)
+            xrandr --output $SCREEN --rotate left
+            xinput map-to-output "$(xinput list --name-only | grep "$TOUCHSCREEN")" $SCREEN
+            ;;
+        *"right"*)
+            xrandr --output $SCREEN --rotate right
+            xinput map-to-output "$(xinput list --name-only | grep "$TOUCHSCREEN")" $SCREEN
+            ;;
+        *"bottom"*)
+            xrandr --output $SCREEN --rotate inverted
+            xinput map-to-output "$(xinput list --name-only | grep "$TOUCHSCREEN")" $SCREEN
+            ;;
+        *)
+            echo "Unknown orientation: $line"
+            ;;
+    esac
+done
+
