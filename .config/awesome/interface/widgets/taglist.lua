@@ -5,11 +5,17 @@ local beautiful = require("beautiful")
 
 local dpi = beautiful.xresources.apply_dpi
 
-local helpers = require("helpers")
 local theme = require("interface.theme.bar-test")
 local color = theme.colors.taglist
 local font = theme.font
 local font_size = 12
+
+local helpers = {
+
+	mtext = function(color, font, text)
+		return '<span color="' .. color .. '" font="' .. font .. '">' .. text .. "</span>"
+	end,
+}
 
 local function create(s)
 	-- Define taglist buttons

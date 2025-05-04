@@ -6,7 +6,7 @@ local wibox = require("wibox")
 local widgets = require("interface.widgets")
 
 function create_bar(s)
-	local bar = awful.wibar({
+	bar = awful.wibar({
 		border_width = beautiful.bar.border_width or 3,
 		border_color = beautiful.bar.border_color or beautiful.colors.secondary,
 		position = beautiful.bar.position or "top",
