@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=/usr/local/bin/ani-cli-rofi
-Type=Application
-Categories=Development
-Icon=/home/matt/Documents/Rofi/alma.png
-Name=Ani-cli

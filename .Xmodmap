@@ -1,5 +1,0 @@
-keycode 67 = F1
-clear control
-add control = Control_L Control_R
-keycode 67 + Control = 1
-
