@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Smart connect
+MimeType=x-scheme-handler/smartconnect;
+Exec=env WINEPREFIX="/home/matt/.wine" wine start %u
+NoDisplay=true
+StartupNotify=true
+Icon=F7BF_launcher.0
