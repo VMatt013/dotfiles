@@ -65,7 +65,11 @@ require("interface.bar")
 local function set_wallpaper(s)
 	if beautiful.wallpapers then
 		for s = 1, screen.count() do
-			gears.wallpaper.maximized(beautiful.wallpapers[s], s)
+			if s == 1 then
+				gears.wallpaper.maximized(beautiful.wallpapers[1], s)
+			else
+				gears.wallpaper.set(beautiful.wallpapers[2], s)
+			end
 		end
 	end
 end
@@ -84,24 +88,9 @@ client.connect_signal("request::default_keybindings", function()
 	awful.keyboard.append_client_keybindings(keybinds.get_client_keys())
 end)
 
-awful.mouse.append_global_mousebindings({
-	awful.button({}, 3, function()
-		mymainmenu:toggle()
-	end),
-})
-
+awful.mouse.append_global_mousebindings(keybinds.get_m_global_keys())
 client.connect_signal("request::default_mousebindings", function()
-	awful.mouse.append_client_mousebindings({
-		awful.button({}, 1, function(c)
-			c:activate({ context = "mouse_click" })
-		end),
-		awful.button({ modkey }, 1, function(c)
-			c:activate({ context = "mouse_click", action = "mouse_move" })
-		end),
-		awful.button({ modkey }, 3, function(c)
-			c:activate({ context = "mouse_click", action = "mouse_resize" })
-		end),
-	})
+	awful.mouse.append_client_mousebindings(keybinds.get_m_client_keys())
 end)
 
 awful.rules.rules = require("core.rules")
@@ -115,6 +104,9 @@ end)
 client.connect_signal("mouse::enter", function(c)
 	c:activate({ context = "mouse_enter", raise = false })
 end)
+
+require("core.utils")
+require("interface.popups")
 
 require("core.scripts.tablet_mode_watcher")
 require("core.scripts.rotate-screen")
