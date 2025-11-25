@@ -13,6 +13,7 @@ local wibox = require("wibox")
 local gears = require("gears")
 local watch = require("awful.widget.watch")
 local beautiful = require("beautiful")
+local ICON_DIR = require("interface.icons")
 
 local function ellipsize(text, length)
 	-- utf8 only available in Lua 5.3+
@@ -27,8 +28,8 @@ local spotify_widget = {}
 local function worker(user_args)
 	local args = user_args or {}
 
-	local pause_icon = args.pause_icon or "/usr/share/icons/Arc/actions/24/player_play.png"
-	local play_icon = args.play_icon or "/usr/share/icons/Arc/actions/24/player_pause.png"
+	local pause_icon = args.pause_icon or ICON_DIR .. "pause.svg"
+	local play_icon = args.play_icon or ICON_DIR .. "play.svg"
 	local font = args.font or "Play 9"
 	local dim_when_paused = args.dim_when_paused == nil and false or args.dim_when_paused
 	local dim_opacity = args.dim_opacity or 0.2

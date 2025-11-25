@@ -1,15 +1,20 @@
 local awful = require("awful")
 local wibox = require("wibox")
-local gears = require("gears")
 local beautiful = require("beautiful")
 
-local util = require("utils.volume")
-
-local ICON_DIR = require("icons")
+local ICON_DIR = require("interface.icons")
 
 local mutecolor = beautiful.bg_urgent
-
 local maincolor = beautiful.fg_color
+
+local db = require("core.utils.debug")
+
+function update(widget)
+	awesome.emit_signal("volume::get", function(vol, muted)
+		db(_, vol)
+		widget:update(vol)
+	end)
+end
 
 local widget = wibox.widget({
 
@@ -28,8 +33,8 @@ local widget = wibox.widget({
 	paddings = 1,
 	value = 50,
 	widget = wibox.container.arcchart,
-	update = function(self)
-		self.value = util:get_volume()
+	update = function(self, value)
+		self.value = value
 	end,
 	mute = function(self)
 		local icon = self:get_children_by_id("icon")[1]
@@ -53,12 +58,12 @@ widget:buttons(awful.util.table.join(
 		end
 	end),
 	awful.button({}, 4, function()
-		util:up_without_popup()
-		widget:update()
+		awesome.emit_signal("utils::volume::increase", true)
+		update(widget)
 	end),
 	awful.button({}, 5, function()
-		util:down_without_popup()
-		widget:update()
+		awesome.emit_signal("utils::volume::decrease", true)
+		update(widget)
 	end),
 	awful.button({}, 2, function()
 		volume:mixer()

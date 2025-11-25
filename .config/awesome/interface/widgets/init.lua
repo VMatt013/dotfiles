@@ -9,11 +9,12 @@ local kde_battery = require(folder .. "kde-battery.arc")
 local headphone_battery = require(folder .. "headphone-battery")
 --local logout_menu = require(folder .. "logout-menu")
 local volume_widget = require(folder .. "pactl.volume")
+local volume = require(folder .. "volume")
 local spotify_widget = require(folder .. "spotify")
 local keyboard = require(folder .. "keyboard")
 local margin = require(folder .. "margin")
 local bluelight = require(folder .. "bluelight")
-
+local caffeine = require(folder .. "caffeine")
 local my_systray = wibox.widget.systray()
 
 widgets = {
@@ -23,12 +24,14 @@ widgets = {
 	kde_battery = kde_battery,
 	headphone_battery = headphone_battery,
 	--	logout_menu = logout_menu,
+	volume = volume,
 	volume_widget = volume_widget,
 	spotify_widget = spotify_widget,
 	my_systray = my_systray,
 	keyboard = keyboard,
 	margin = margin,
 	bluelight = bluelight,
+	caffeine = caffeine,
 }
 
 return widgets

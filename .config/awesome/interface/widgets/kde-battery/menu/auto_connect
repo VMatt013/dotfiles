@@ -1,0 +1,24 @@
+#!/bin/bash
+
+    # 1. Find the IP address:
+    #    - 'ss -tupn': List TCP/UDP sockets with process info and numeric addresses.
+    #    - 'grep kdeconnectd': Filter for lines related to the KDE Connect daemon.
+    #    - 'awk \'{print \$6}\'': Extract the 6th field (the local or foreign address).
+    #    - 'sed ...': Clean up the output to isolate the IP address from
+    #                 the IPv6/port format (e.g., [::ffff:192.168.1.100]:1716 -> 192.168.1.100).
+    #    - 'head -n1': Take only the first IP found.
+    PHONE_IP=$(ss -tupn | grep kdeconnectd | awk '{print $6}' | sed 's/.*\\[::ffff://;s/\\]:1716//' | head -n1)
+
+    # 2. Check if an IP was successfully found
+    if [ -n "$PHONE_IP" ]; then
+        # Remove any potential whitespace (Lua's gsub("%s+", "") equivalent)
+        PHONE_IP=$(echo "$PHONE_IP" | tr -d '[:space:]')
+        
+        echo "Found phone IP: $PHONE_IP. Attempting ADB connection..."
+        
+        # 3. Perform the ADB connection
+        adb connect "$PHONE_IP"
+    else
+        echo "Error: Could not find an IP address associated with kdeconnectd."
+    fi
+
