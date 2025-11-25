@@ -1,6 +1,8 @@
 local awful = require("awful")
+local debug = require("core.utils.debug")
 
 local last_line = ""
+
 
 awful.spawn.with_line_callback(
 	"stdbuf -oL -eL libinput debug-events --device /dev/input/by-path/platform-thinkpad_acpi-event",
@@ -23,7 +25,9 @@ awful.spawn.with_line_callback(
 		end,
 
 		stderr = function(err)
-			Debug("tablet_mode_watcher error: " .. err)
+			if err and err ~= "" then
+				debug("tablet_mode_watcher error", err)
+			end
 		end,
 	}
 )

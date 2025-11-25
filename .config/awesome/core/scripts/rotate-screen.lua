@@ -40,7 +40,7 @@ gears.timer({
 	autostart = true,
 	call_now = true,
 	callback = function()
-		awesome.spawn(
+		awful.spawn(
 			"gdbus call --system --dest net.hadess.SensorProxy --object-path /net/hadess/SensorProxy --method net.hadess.SensorProxy.ClaimAccelerometer"
 		)
 		awful.spawn.easy_async_with_shell(
@@ -52,7 +52,7 @@ gears.timer({
 					rotate_screen_and_input(orientation)
 
 					local mode
-					if orientation == "normal" or orientation == "bottom" then
+					if orientation == "normal" or orientation == "bottom-up" then
 						mode = "tablet-horizontal"
 					elseif orientation == "left-up" or orientation == "right-up" then
 						mode = "tablet-vertical"
