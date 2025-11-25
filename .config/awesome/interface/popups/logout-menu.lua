@@ -150,4 +150,8 @@ popup:connect_signal("property::visible", function()
 	end
 end)
 
+awesome.connect_signal("popups::logout", function()
+	popup:toggle()
+end)
+
 return popup

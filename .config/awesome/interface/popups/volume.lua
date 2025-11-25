@@ -5,7 +5,8 @@ local beautiful = require("beautiful")
 
 local ICON_DIR = require("interface.icons")
 local ICONS = { "volume-off.svg", "volume-min.svg", "volume-med.svg", "volume-max.svg" }
-local volume = 50
+
+local db = require("core.utils.debug")
 
 local popup = awful.popup({
 	screen = awful.screen.focused(),
@@ -34,7 +35,7 @@ local popup = awful.popup({
 					{
 						id = "bar",
 						max_value = 100,
-						value = volume,
+						value = 0,
 						color = beautiful.fg_normal,
 						bar_shape = beautiful.shape.rounded_rect(),
 						shape = beautiful.shape.rounded_rect(),
@@ -63,7 +64,7 @@ hide:connect_signal("timeout", function()
 	hide:stop()
 end)
 
-function popup:change_icon()
+function popup:change_icon(volume)
 	local icon = self.widget:get_children_by_id("icon")[1]
 
 	if volume == 0 then
@@ -90,10 +91,11 @@ function popup:open()
 end
 
 function popup:update(value)
-	volume = value
-	self.widget:get_children_by_id("bar")[1].value = tonumber(volume)
-	self:change_icon()
+	self.widget:get_children_by_id("bar")[1].value = tonumber(value)
+	self:change_icon(value)
 	self:open()
 end
 
-return popup
+awesome.connect_signal("popups::volume", function(value)
+	popup:update(value)
+end)

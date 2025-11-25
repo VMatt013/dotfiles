@@ -4,17 +4,8 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 
 local ICON_DIR = require("interface.icons")
-local CMD = "light"
-local CMD_CHANGE = CMD .. " -S"
-local STEP = 1
-local MIN = 1
-local MAX = 100
 
-local brightness = 0
-
-awful.spawn.easy_async_with_shell("light", function(stdout, stderr, reason, exit_code)
-	brightness = tonumber(stdout)
-end)
+local db = require("core.utils.debug")
 
 local popup = awful.popup({
 	screen = awful.screen.focused(),
@@ -43,7 +34,7 @@ local popup = awful.popup({
 					{
 						id = "bar",
 						max_value = 100,
-						value = brightness,
+						value = 0,
 						color = beautiful.fg_normal,
 						bar_shape = beautiful.shape.rounded_rect(),
 						shape = beautiful.shape.rounded_rect(),
@@ -84,24 +75,11 @@ function popup:open()
 	end
 end
 
-function popup:update()
-	awful.spawn.with_shell(CMD_CHANGE .. " " .. brightness)
-	self.widget:get_children_by_id("bar")[1].value = tonumber(brightness)
+function popup:update(value)
+	self.widget:get_children_by_id("bar")[1].value = tonumber(value)
 	popup:open()
 end
 
-function popup:up()
-	if brightness + STEP <= MAX then
-		brightness = brightness + STEP
-	end
-	popup:update()
-end
-
-function popup:down()
-	if brightness - STEP >= MIN then
-		brightness = brightness - STEP
-	end
-	popup:update()
-end
-
-return popup
+awesome.connect_signal("popups::brightness", function(value)
+	popup:update(value)
+end)
