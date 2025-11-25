@@ -63,14 +63,22 @@ awful.layout.layouts = {
 require("interface.bar")
 
 local function set_wallpaper(s)
-	if beautiful.wallpapers then
-		for s = 1, screen.count() do
-			if s == 1 then
-				gears.wallpaper.maximized(beautiful.wallpapers[1], s)
-			else
-				gears.wallpaper.set(beautiful.wallpapers[2], s)
-			end
+	if not s or not s.valid then
+		return
+	end
+
+	local wallpapers = beautiful.wallpapers
+	if type(wallpapers) == "table" then
+		local primary = screen.primary
+		local is_primary = primary and s == primary
+		local wallpaper = is_primary and wallpapers[1] or wallpapers[2] or wallpapers[1]
+		if wallpaper then
+			gears.wallpaper.maximized(wallpaper, s, true)
 		end
+	elseif type(wallpapers) == "string" then
+		gears.wallpaper.maximized(wallpapers, s, true)
+	elseif beautiful.wallpaper then
+		gears.wallpaper.maximized(beautiful.wallpaper, s, true)
 	end
 end
 
