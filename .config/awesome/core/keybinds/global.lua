@@ -54,7 +54,7 @@ M.get_keys = function()
 		-- Standard program
 
 		awful.key({ modkey }, "Escape", function()
-			logout_popup:toggle()
+			awesome.emit_signal("popups::logout")
 		end, { description = "open a logout menu", group = "launcher" }),
 
 		awful.key({ modkey, "Shift" }, "s", function()
@@ -106,18 +106,16 @@ M.get_keys = function()
 
 		-- FN keys
 		awful.key({}, "#232", function()
-			brightness_popup:down()
+			awesome.emit_signal("utils::brightness::decrease")
 		end, { description = "brightness down", group = "fn keys" }),
 		awful.key({}, "#233", function()
-			brightness_popup:up()
+			awesome.emit_signal("utils::brightness::increase")
 		end, { description = "brightness up", group = "fn keys" }),
 		awful.key({}, "#122", function()
-			--volume_popup:down()
-			utils_volume:down()
+			awesome.emit_signal("utils::volume::decrease", true)
 		end, { description = "volume down", group = "fn keys" }),
 		awful.key({}, "#123", function()
-			utils_volume:up()
-			--volume_popup:up()
+			awesome.emit_signal("utils::volume::increase", true)
 		end, { description = "volume up", group = "fn keys" }),
 		awful.key({}, "#172", function()
 			awful.spawn("playerctl play-pause")
