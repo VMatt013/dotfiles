@@ -9,9 +9,11 @@ function create_bar(s)
 	bar = awful.wibar({
 		border_width = beautiful.bar.border_width or 3,
 		border_color = beautiful.bar.border_color or beautiful.colors.secondary,
-		position = beautiful.bar.position or "top",
-		height = beautiful.bar.height or 30,
-		margins = beautiful.bar.margins or { top = 0, bottom = 0, left = 0, right = 0 },
+		position = "right",
+		ontop = true,
+		height = 600,
+		width = 30,
+		margins = beautiful.bar.margins or { top = 0, bottom = 0, left = 0, right = 1 },
 		fg = beautiful.bar.fg or beautiful.fg_normal,
 		bg = beautiful.bar.bg or beautiful.colors.main,
 		shape = beautiful.bar.shape or gears.shape.rounded_rect,
@@ -20,21 +22,17 @@ function create_bar(s)
 	})
 
 	bar:setup({
-		layout = wibox.layout.align.horizontal,
+		layout = wibox.layout.align.vertical,
 		expand = "none",
 		{ -- Left widgets
-			layout = wibox.layout.fixed.horizontal,
-			widgets.margin(widgets.logout_menu, true, _, _, _, 10),
-			widgets.margin(s.taglist),
-			widgets.margin(widgets.spotify_widget({ max_length = 40 }), true),
+			layout = wibox.layout.fixed.vertical,
 			widgets.margin(widgets.bluelight, true),
 		},
 		-- Middle widget
-		widgets.margin(s.tasklist, true),
+		--widgets.margin(s.tasklist, true),
 		{ -- Right widgets
-			layout = wibox.layout.fixed.horizontal,
-			widgets.margin(widgets.my_systray, true),
-			widgets.margin(widgets.kde_battery({ device_id = "502889c4_a2e6_4813_afc4_99dc2069a45b" })),
+			layout = wibox.layout.fixed.vertical,
+			--margin(headphone_battery()),
 			widgets.margin(widgets.battery_arc()),
 			widgets.margin(widgets.volume_widget()),
 			widgets.margin(widgets.clock),

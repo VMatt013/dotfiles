@@ -28,6 +28,7 @@ function create_bar(s)
 			widgets.margin(s.taglist),
 			widgets.margin(widgets.spotify_widget({ max_length = 40 }), true),
 			widgets.margin(widgets.bluelight, true),
+			widgets.margin(widgets.caffeine, true),
 		},
 		-- Middle widget
 		widgets.margin(s.tasklist, true),
@@ -35,9 +36,7 @@ function create_bar(s)
 			layout = wibox.layout.fixed.horizontal,
 			widgets.margin(widgets.my_systray, true),
 			--margin(headphone_battery()),
-			widgets.margin(
-				widgets.kde_battery({ device_id = "502889c4_a2e6_4813_afc4_99dc2069a45b", max_charge = 81 })
-			),
+			widgets.margin(widgets.kde_battery({ device_id = "502889c4_a2e6_4813_afc4_99dc2069a45b" })),
 			widgets.margin(widgets.battery_arc()),
 			widgets.margin(widgets.volume_widget()),
 			widgets.margin(widgets.clock),

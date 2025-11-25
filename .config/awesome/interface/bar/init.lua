@@ -9,7 +9,7 @@ awful.screen.connect_for_each_screen(function(s)
 
 	local bar = modes.laptop(s)
 	s.bar = bar
-
+	--local dock = modes["tablet-right"](s)
 	awesome.connect_signal("bar::change_mode", function(mode)
 		s.bar:remove()
 		s.bar = modes[mode](s)
